@@ -45,7 +45,7 @@ pipeline {
         stage("Build & Test") {
             steps {
                 // TODO: Build, Test, and Package birthday-paradox using Maven
-                sh "# TODO: Maven command goes here"
+                checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'binoyskumar92-dev-git-auth', url: 'https://github.com/binoyskumar92/OpenShift-Jenkins-Lab']]])
             }
         }
         stage("Create Image") {
