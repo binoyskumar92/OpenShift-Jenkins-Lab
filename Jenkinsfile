@@ -1,8 +1,8 @@
 def appName = "birthday-paradox"
 def replicas = "1"
-def devProject = // TODO: Your dev project name goes here
-def testProject = // TODO: Your test project name goes here
-def prodProject = // TODO: Your prod project name goes here
+def devProject = binoyskumar92-dev
+def testProject = binoyskumar92-test
+def prodProject = binoyskumar92-prod
 
 def skopeoToken
 def imageTag
