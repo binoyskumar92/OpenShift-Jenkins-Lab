@@ -1,8 +1,10 @@
 def appName = "birthday-paradox"
 def replicas = "1"
+def mvnCmd      = "mvn "
 def devProject = binoyskumar92-dev
 def testProject = binoyskumar92-test
 def prodProject = binoyskumar92-prod
+
 
 def skopeoToken
 def imageTag
@@ -46,6 +48,10 @@ pipeline {
             steps {
                 // TODO: Build, Test, and Package birthday-paradox using Maven
                 checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'binoyskumar92-dev-git-auth', url: 'https://github.com/binoyskumar92/OpenShift-Jenkins-Lab']]])
+                echo "Building version ${devTag}"
+                sh "${mvnCmd} clean package -DskipTests=true"
+                echo "Running Unit Tests"
+                sh "${mvnCmd} test"
             }
         }
         stage("Create Image") {
