@@ -1,6 +1,6 @@
 def appName = "birthday-paradox"
 def replicas = "1"
-def mvnCmd      = "mvn "
+def mvnCmd      = "mvn"
 def devProject = binoyskumar92-dev
 def testProject = binoyskumar92-test
 def prodProject = binoyskumar92-prod
