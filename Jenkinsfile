@@ -47,7 +47,8 @@ pipeline {
         stage("Build & Test") {
             steps {
                 // TODO: Build, Test, and Package birthday-paradox using Maven
-                checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'binoyskumar92-dev-git-auth', url: 'https://github.com/binoyskumar92/OpenShift-Jenkins-Lab']]])
+                //checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'binoyskumar92-dev-git-auth', url: 'https://github.com/binoyskumar92/OpenShift-Jenkins-Lab']]])
+                checkout scm
                 echo "Building version ${devTag}"
                 sh "mvn clean install"
             }
